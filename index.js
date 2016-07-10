@@ -3,7 +3,7 @@
 
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
-// var ParseDashboard = require('parse-dashboard');
+var ParseDashboard = require('parse-dashboard');
 var path = require('path');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
@@ -23,7 +23,7 @@ var api = new ParseServer({
   }
 });
 
-/*
+
 var dashboard = new ParseDashboard({
   "apps": [
     {
@@ -33,7 +33,7 @@ var dashboard = new ParseDashboard({
       "appName": "morbix-parse-server-example"
     }
   ]
-});*/
+});
 
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
@@ -49,8 +49,8 @@ var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 
 // make the Parse Dashboard available at /dashboard
-// var mountDashboardPath = process.env.DASHBOARD_MOUNT || '/dashboard';
-// app.use(mountDashboardPath, dashboard);
+var mountDashboardPath = process.env.DASHBOARD_MOUNT || '/dashboard';
+app.use(mountDashboardPath, dashboard);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
