@@ -48,7 +48,8 @@ var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 
 // make the Parse Dashboard available at /dashboard
-app.use('/dashboard', dashboard);
+// var mountDashboardPath = process.env.DASHBOARD_MOUNT || '/dashboard';
+// app.use(mountDashboardPath, dashboard);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
