@@ -33,7 +33,12 @@ var dashboard = new ParseDashboard({
       "masterKey": process.env.MASTER_KEY || '',
       "appName": "morbix-parse-server-example"
     }
-  ]
+  ],
+  "users": [
+    {
+      "user": process.env.DASHBOARD_ADMIN,
+      "pass": process.env.DASHBOARD_PASSWORD
+    }
 }, true);
 
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
