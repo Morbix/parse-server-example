@@ -39,6 +39,7 @@ var dashboard = new ParseDashboard({
       "user": process.env.DASHBOARD_ADMIN,
       "pass": process.env.DASHBOARD_PASSWORD
     }
+  ]
 }, true);
 
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
