@@ -69,33 +69,3 @@ httpServer.listen(port, function() {
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
-
-
-
-
-
-
-
-
-var express = require('express');
-var ParseServer = require('parse-server').ParseServer;
-var ParseDashboard = require('parse-dashboard');
-
-var api = new ParseServer({
-    // Parse Server settings
-});
-
-var dashboard = new ParseDashboard({
-    // Parse Dashboard settings
-});
-
-var app = express();
-
-// make the Parse Server available at /parse
-app.use('/parse', api);
-
-// make the Parse Dashboard available at /dashboard
-app.use('/dashboard', dashboard);
-
-var httpServer = require('http').createServer(app);
-httpServer.listen(4040);
